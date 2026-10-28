@@ -1,309 +1,373 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEHI69 | Night Edition</title>
-    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
-    <style>
-        :root {
-            --bg-color: #050505;
-            --text-main: #f0f0f0;
-            --text-muted: #888;
-            --blue-glow: #0055ff;
-            --glass-bg: rgba(20, 20, 20, 0.4);
-            --glass-border: rgba(255, 255, 255, 0.08);
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#05070c">
+<meta name="description" content="MEHI69 — My personal world">
+<title>MEHI69 | Personal Space</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Vazirmatn', sans-serif;
-        }
+<style>
+:root {
+  --bg:#05070c;
+  --blue:#428aff;
+  --cyan:#8cdbff;
+  --white:#f3f6ff;
+  --muted:#8793a9;
+  --border:rgba(160,190,255,.13);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0;
+  min-height:100vh;
+  overflow-x:hidden;
+  color:var(--white);
+  font-family:"Vazirmatn",sans-serif;
+  background:
+    radial-gradient(ellipse at 50% 0%,#14274a 0%,transparent 45%),
+    radial-gradient(ellipse at 100% 60%,#07162a 0%,transparent 35%),
+    var(--bg);
+}
+body:before {
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background-image:radial-gradient(#8dbbff40 .7px,transparent .7px);
+  background-size:26px 26px;
+  opacity:.3;
+  mask-image:linear-gradient(to bottom,#000,transparent 90%);
+}
+a { color:inherit;text-decoration:none; }
+.container { width:min(100% - 34px,690px);margin:auto; }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-            position: relative;
-        }
+header {
+  height:80px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand {
+  font-size:21px;
+  font-weight:800;
+  letter-spacing:2px;
+  direction:ltr;
+}
+.brand span { color:var(--blue); }
+.online {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border:1px solid var(--border);
+  border-radius:40px;
+  background:#ffffff05;
+  color:#c1cce0;
+  font-size:10px;
+  direction:ltr;
+}
+.online i {
+  width:7px;height:7px;border-radius:50%;
+  background:#51e6a5;
+  box-shadow:0 0 12px #51e6a5;
+}
 
-        body::before {
-            content: '';
-            position: fixed;
-            top: -20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100vw;
-            height: 60vh;
-            background: radial-gradient(circle, rgba(0, 85, 255, 0.15) 0%, transparent 60%);
-            z-index: -1;
-            pointer-events: none;
-        }
+.hero { text-align:center;padding-top:35px; }
+.kicker {
+  direction:ltr;
+  display:inline-block;
+  color:var(--cyan);
+  font-size:10px;
+  letter-spacing:4px;
+}
+h1 {
+  direction:ltr;
+  margin:12px 0 0;
+  font-size:clamp(57px,13vw,91px);
+  font-weight:800;
+  line-height:1.1;
+  letter-spacing:-4px;
+}
+h1 span {
+  color:transparent;
+  -webkit-text-stroke:1.4px #8abaff;
+  text-shadow:0 0 35px #428aff24;
+}
+.tagline {
+  margin:15px 0 19px;
+  color:#a4aec1;
+  font-size:13px;
+  font-weight:300;
+}
+.clock {
+  display:inline-flex;
+  direction:ltr;
+  gap:10px;
+  align-items:center;
+  border:1px solid var(--border);
+  border-radius:40px;
+  padding:9px 15px;
+  background:#ffffff05;
+  color:#aab8d1;
+  font:10px monospace;
+}
+.clock strong { color:var(--cyan);font-weight:400; }
 
-        .container {
-            width: 100%;
-            max-width: 500px;
-            padding: 2rem 1.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            animation: fadeIn 1.5s ease-out;
-        }
+.car-card {
+  position:relative;
+  margin:32px 0 28px;
+  overflow:hidden;
+  border-radius:20px;
+  border:1px solid #7bb7ff28;
+  background:#0a1020;
+  box-shadow:0 20px 70px #0009,0 0 40px #1c62b514;
+}
+.car-card img {
+  display:block;
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  object-position:center;
+  filter:brightness(.76) saturate(.85);
+}
+.car-card:after {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(0deg,#05070cf5 0%,transparent 52%,#07102022);
+}
+.car-info {
+  position:absolute;
+  bottom:17px;
+  left:18px;
+  z-index:1;
+  direction:ltr;
+}
+.car-info b {
+  display:block;
+  font-size:12px;
+  letter-spacing:3px;
+}
+.car-info span {
+  display:block;
+  margin-top:4px;
+  font-size:9px;
+  color:#b0c2e0;
+  letter-spacing:2px;
+}
 
-        .header {
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
+.section-title {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin:30px 2px 14px;
+}
+.section-title h2 { margin:0;font-size:14px;font-weight:600; }
+.section-title span {
+  color:var(--muted);
+  font-size:9px;
+  direction:ltr;
+  letter-spacing:1px;
+}
+.links { display:grid;gap:11px; }
+.link {
+  min-height:75px;
+  padding:13px 15px;
+  display:flex;
+  align-items:center;
+  gap:13px;
+  border:1px solid var(--border);
+  border-radius:16px;
+  background:linear-gradient(110deg,#ffffff09,#ffffff02);
+  transition:transform .25s,border-color .25s,background .25s;
+  animation:appear .7s both;
+}
+.link:nth-child(2) { animation-delay:.08s; }
+.link:nth-child(3) { animation-delay:.16s; }
+.link:nth-child(4) { animation-delay:.24s; }
+.link:hover {
+  transform:translateY(-3px);
+  border-color:#438aff77;
+  background:linear-gradient(110deg,#438aff19,#ffffff03);
+}
+.link-icon {
+  width:44px;height:44px;flex-shrink:0;
+  display:grid;place-items:center;
+  border:1px solid #438aff30;
+  border-radius:13px;
+  background:#438aff12;
+  color:#a8ccff;
+  font-size:13px;
+  font-weight:700;
+  direction:ltr;
+}
+.link-copy { flex:1; }
+.link-copy b { display:block;font-size:12px;font-weight:600; }
+.link-copy small {
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-size:10px;
+}
+.arrow { color:#7d91b3;font-size:19px;direction:ltr; }
 
-        .car-image {
-            width: 100%;
-            height: 220px;
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            object-fit: cover;
-            object-position: center;
-        }
+.code-card {
+  margin-top:27px;
+  padding:20px;
+  border:1px solid var(--border);
+  border-radius:17px;
+  background:linear-gradient(135deg,#101a2b,#080b12);
+}
+.code-label {
+  color:var(--cyan);
+  font-size:10px;
+  letter-spacing:2px;
+  direction:ltr;
+}
+.code-card pre {
+  margin:14px 0 0;
+  overflow-x:auto;
+  direction:ltr;
+  text-align:left;
+  white-space:pre-wrap;
+  color:#b5ccff;
+  font:12px/2 monospace;
+}
+footer {
+  padding:30px 0 23px;
+  text-align:center;
+  direction:ltr;
+  color:#68758d;
+  font-size:10px;
+  letter-spacing:1px;
+}
+footer span { color:#a6c5ff; }
 
-        .brand-title {
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            font-weight: 300;
-            color: var(--text-main);
-            text-transform: uppercase;
-        }
-
-        .clock-display {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--blue-glow);
-            text-shadow: 0 0 10px rgba(0, 85, 255, 0.5);
-            letter-spacing: 1px;
-            direction: ltr;
-        }
-
-        .section-title {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            padding: 1.2rem 1.5rem;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            text-decoration: none;
-            color: var(--text-main);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
-            transition: 0.5s;
-        }
-
-        .glass-card:hover {
-            border-color: rgba(0, 85, 255, 0.4);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 20px rgba(0, 85, 255, 0.1);
-        }
-
-        .glass-card:hover::before {
-            left: 100%;
-        }
-
-        .card-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0.3rem;
-        }
-
-        .card-title {
-            font-size: 1rem;
-            font-weight: 600;
-        }
-
-        .card-desc {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .card-icon {
-            font-size: 1.2rem;
-            color: var(--blue-glow);
-            transition: transform 0.3s ease;
-        }
-
-        .glass-card:hover .card-icon {
-            transform: translateX(-5px);
-        }
-
-        .code-section {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--glass-border);
-            border-radius: 16px;
-            padding: 1.5rem;
-            font-family: monospace;
-            direction: ltr;
-            text-align: left;
-            margin-top: 1rem;
-        }
-
-        .code-header {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-            font-family: 'Vazirmatn', sans-serif;
-            letter-spacing: 2px;
-            direction: rtl;
-            text-align: right;
-        }
-
-        .code-content {
-            color: #e0e0e0;
-            font-size: 0.9rem;
-            line-height: 1.6;
-            white-space: pre-wrap;
-        }
-
-        .keyword { color: #ff7b72; }
-        .function { color: #d2a8ff; }
-        .punctuation { color: #8b949e; }
-        .string { color: #a5d6ff; }
-
-        footer {
-            margin-top: 3rem;
-            text-align: center;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            border-top: 1px solid var(--glass-border);
-            padding-top: 1.5rem;
-            width: 100%;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (min-width: 768px) {
-            .container { max-width: 600px; }
-        }
-    </style>
+@keyframes appear {
+  from { opacity:0;transform:translateY(12px); }
+  to { opacity:1;transform:translateY(0); }
+}
+@media(max-width:420px) {
+  .container { width:calc(100% - 26px); }
+  header { height:70px; }
+  .hero { padding-top:28px; }
+  .car-card { margin-top:25px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*:before,*:after {
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+}
+</style>
 </head>
+
 <body>
+<div class="container">
+  <header>
+    <a class="brand" href="#">MEHI<span>69</span></a>
+    <div class="online"><i></i> PERSONAL SPACE</div>
+  </header>
 
-    <div class="container">
+  <main>
+    <section class="hero">
+      <span class="kicker">WELCOME TO MY WORLD</span>
+      <h1>MEHI<span>69</span></h1>
+      <p class="tagline">کم حرف، هدف‌دار، در مسیر خودم.</p>
+      <div class="clock">
+        LOCAL TIME <strong id="clock">00:00:00</strong>
+      </div>
+    </section>
 
-        <header class="header">
-            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1000&auto=format&fit=crop" class="car-image" alt="Mercedes-Benz CLS">
-            <h1 class="brand-title">Mercedes-Benz CLS · Night Edition</h1>
-            <div class="clock-display" id="clock">00:00:00</div>
-        </header>
+    <section class="car-card">
+      <img
+        src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=1400&q=85"
+        alt="Mercedes-Benz luxury car"
+        fetchpriority="high">
+      <div class="car-info">
+        <b>MERCEDES-BENZ</b>
+        <span>CLS · NIGHT EDITION</span>
+      </div>
+    </section>
 
-        <section class="links-section">
-            <div class="section-title">Connect with me</div>
-            <div class="links-container">
-                <a href="https://t.me/" class="glass-card" target="_blank">
-                    <div class="card-info">
-                        <span class="card-title">تلگرام</span>
-                        <span class="card-desc">پیام بده یا دنبالم کن</span>
-                    </div>
-                    <span class="card-icon">↗</span>
-                </a>
-
-                <a href="https://instagram.com/" class="glass-card" target="_blank">
-                    <div class="card-info">
-                        <span class="card-title">اینستاگرام</span>
-                        <span class="card-desc">لحظه‌ها و حال‌وهوای من</span>
-                    </div>
-                    <span class="card-icon">↗</span>
-                </a>
-
-                <a href="https://github.com/mehi69" class="glass-card" target="_blank">
-                    <div class="card-info">
-                        <span class="card-title">گیت‌هاب</span>
-                        <span class="card-desc">Code · Learn · Build</span>
-                    </div>
-                    <span class="card-icon">↗</span>
-                </a>
-
-                <a href="mailto:your-email@gmail.com" class="glass-card">
-                    <div class="card-info">
-                        <span class="card-title">ارتباط مستقیم</span>
-                        <span class="card-desc">برای ارتباط با من</span>
-                    </div>
-                    <span class="card-icon">↗</span>
-                </a>
-            </div>
-        </section>
-
-        <section class="code-section">
-            <div class="code-header">CURRENT MINDSET / 001</div>
-            <div class="code-content"><span class="keyword">while</span> <span class="punctuation">(</span><span class="function">alive</span><span class="punctuation">)</span> <span class="punctuation">{</span>
-  <span class="function">code</span><span class="punctuation">();</span>
-  <span class="function">learn</span><span class="punctuation">();</span>
-  <span class="function">build</span><span class="punctuation">();</span>
-<span class="punctuation">}</span></div>
-        </section>
-
-        <footer>
-            DESIGNED IN THE DARK · MEHI69 © <span id="year"></span>
-        </footer>
-
+    <div class="section-title">
+      <h2>راه‌های ارتباطی</h2>
+      <span>CONNECT WITH ME</span>
     </div>
 
-    <script>
-        const clockElement = document.getElementById("clock");
-        function updateClock() {
-            const now = new Date();
-            const timeString = new Intl.DateTimeFormat("fa-IR", {
-                hour: "2-digit", 
-                minute: "2-digit", 
-                second: "2-digit",
-                hour12: false
-            }).format(now);
-            clockElement.textContent = timeString;
-        }
+    <section class="links">
+      <a class="link" href="https://t.me/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">TG</div>
+        <div class="link-copy">
+          <b>تلگرام</b>
+          <small>پیام بده یا دنبالم کن</small>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
 
-        updateClock();
-        setInterval(updateClock, 1000);
+      <a class="link" href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">IG</div>
+        <div class="link-copy">
+          <b>اینستاگرام</b>
+          <small>لحظه‌ها و حال‌وهوای من</small>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
 
-        document.getElementById("year").textContent = new Date().getFullYear();
-    </script>
+      <a class="link" href="https://github.com/mehi69" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">GH</div>
+        <div class="link-copy">
+          <b>گیت‌هاب</b>
+          <small>Code · Learn · Build</small>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+
+      <a class="link" href="https://t.me/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">
+        <div class="link-icon">✉</div>
+        <div class="link-copy">
+          <b>ارتباط مستقیم</b>
+          <small>راه ارتباطی با من</small>
+        </div>
+        <span class="arrow">↗</span>
+      </a>
+    </section>
+
+    <section class="code-card">
+      <div class="code-label">CURRENT MINDSET / 001</div>
+      <pre>while (alive) {
+  code();
+  learn();
+  build();
+}</pre>
+    </section>
+  </main>
+
+  <footer>DESIGNED IN THE DARK · <span>MEHI69</span> © <span id="year"></span></footer>
+</div>
+
+<script>
+const clock = document.getElementById("clock");
+
+function updateClock() {
+  clock.textContent = new Intl.DateTimeFormat("en-GB", {
+    hour:"2-digit",
+    minute:"2-digit",
+    second:"2-digit",
+    hour12:false
+  }).format(new Date());
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
+
