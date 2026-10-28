@@ -1,124 +1,565 @@
 <
 
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#060810">
-<title>MeHrAd | Personal Space</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Vazirmatn:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#060810;--blue:#5894ff;--cyan:#8ce7ff;--text:#f4f6ff;--muted:#8d99b0;--line:rgba(143,178,255,.15)}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;min-height:100vh;overflow-x:hidden;color:var(--text);font-family:"Vazirmatn",sans-serif;background:radial-gradient(ellipse at 50% -10%,#1a2c50 0%,transparent 48%),radial-gradient(ellipse at 0% 70%,#0a1930 0%,transparent 35%),var(--bg)}
-body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.22;background-image:radial-gradient(#a2c7ff .7px,transparent .7px);background-size:28px 28px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
-a{color:inherit;text-decoration:none}
-.container{width:min(100% - 34px,600px);margin:auto}
-header{height:82px;display:flex;align-items:center;justify-content:space-between}
-.brand{direction:ltr;font-size:17px;font-weight:600;letter-spacing:3px}
-.brand span{color:var(--blue)}
-.status{display:flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);border-radius:40px;background:#ffffff05;color:#bac8df;font-size:10px;direction:ltr}
-.status i{width:6px;height:6px;background:#55e7a7;border-radius:50%;box-shadow:0 0 12px #55e7a7}
-.hero{text-align:center;padding:66px 0 38px;animation:fadeUp .9s both}
-.kicker{display:inline-block;direction:ltr;color:var(--cyan);font-size:10px;letter-spacing:5px}
-h1{direction:ltr;margin:18px 0 12px;font-family:"DM Serif Display",serif;font-weight:400;font-size:clamp(68px,15vw,105px);line-height:1.12;letter-spacing:1px;background:linear-gradient(120deg,#fff 10%,#a7caff 45%,#6599ff 75%,#e2f5ff);color:transparent;background-clip:text;-webkit-background-clip:text;filter:drop-shadow(0 0 30px #438aff25)}
-.subtitle{margin:0;color:#a1acc1;font-size:13px;font-weight:300}
-.clock{display:inline-flex;gap:11px;align-items:center;direction:ltr;margin-top:23px;padding:10px 16px;border:1px solid var(--line);border-radius:40px;background:linear-gradient(120deg,#ffffff08,#ffffff02);color:#a5b6d1;font:10px monospace}
-.clock strong{color:var(--cyan);font-weight:400}
-.section-heading{display:flex;align-items:center;justify-content:space-between;margin:20px 2px 17px}
-.section-heading h2{font-size:14px;font-weight:500;margin:0}
-.section-heading span{direction:ltr;color:var(--muted);font-size:9px;letter-spacing:1.5px}
-.links{display:grid;gap:13px}
-.link{--accent:#62a0ff;position:relative;display:flex;align-items:center;gap:15px;min-height:83px;padding:15px 17px;overflow:hidden;isolation:isolate;border:1px solid var(--line);border-radius:18px;background:linear-gradient(110deg,#121a2b99,#ffffff02);box-shadow:inset 0 1px #ffffff08,0 8px 28px #00000012;transition:transform .3s,border-color .3s,box-shadow .3s;animation:fadeUp .8s both}
-.link:nth-child(2){animation-delay:.1s;--accent:#db8cff}
-.link:nth-child(3){animation-delay:.2s;--accent:#7ee9c0}
-.link:before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;background:radial-gradient(ellipse at 0% 50%,color-mix(in srgb,var(--accent) 17%,transparent),transparent 65%);transition:opacity .3s}
-.link:after{content:"";position:absolute;top:-100%;left:-70%;width:35%;height:300%;transform:rotate(25deg);background:linear-gradient(90deg,transparent,#ffffff10,transparent);transition:left .65s;pointer-events:none}
-.link:hover{transform:translateY(-4px) scale(1.008);border-color:color-mix(in srgb,var(--accent) 55%,transparent);box-shadow:0 12px 35px #0004,0 0 25px color-mix(in srgb,var(--accent) 9%,transparent)}
-.link:hover:before{opacity:1}
-.link:hover:after{left:140%}
-.icon-box{flex:0 0 48px;height:48px;display:grid;place-items:center;border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:15px;background:color-mix(in srgb,var(--accent) 9%,transparent);color:var(--accent);transition:transform .3s,box-shadow .3s}
-.icon-box svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.link:hover .icon-box{transform:rotate(-5deg) scale(1.08);box-shadow:0 0 20px color-mix(in srgb,var(--accent) 16%,transparent)}
-.link-copy{flex:1}
-.link-copy b{display:block;font-size:13px;font-weight:500}
-.link-copy small{display:block;margin-top:5px;color:var(--muted);font-size:10px;font-weight:300}
-.link-arrow{color:#8295b7;font-size:20px;direction:ltr;transition:transform .3s,color .3s}
-.link:hover .link-arrow{transform:translate(-3px,-3px);color:var(--accent)}
-.quote{margin-top:27px;padding:22px 20px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(130deg,#111b2c,#090c14);text-align:center}
-.quote-mark{color:var(--blue);font-family:"DM Serif Display",serif;font-size:30px;line-height:1}
-.quote p{margin:10px 0 0;font-size:12px;color:#b7c5dc;font-weight:300}
-footer{padding:34px 0 25px;color:#687790;text-align:center;direction:ltr;font-size:10px;letter-spacing:2px}
-footer span{color:#a8caff}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:400px){.container{width:calc(100% - 26px)}.hero{padding-top:52px}.link{min-height:76px;padding:12px}.icon-box{flex-basis:43px;height:43px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080b14">
+  <meta name="description" content="MeHrAd — Personal Space">
+  <title>MeHrAd | Personal Space</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Vazirmatn:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080b14;
+      --text: #f1f3fa;
+      --muted: #858da3;
+      --blue: #668cff;
+      --red: #ff4057;
+      --border: rgba(255,255,255,.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 50% 0%, #17213d 0%, transparent 48%),
+        var(--bg);
+      color: var(--text);
+      font-family: 'Vazirmatn', sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 28px 18px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 440px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 72px;
+    }
+
+    .brand {
+      font-family: 'DM Serif Display', serif;
+      font-size: 24px;
+      letter-spacing: -.5px;
+    }
+
+    .brand span {
+      color: var(--red);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.025);
+      color: var(--muted);
+      border-radius: 30px;
+      padding: 8px 12px;
+      font-size: 9px;
+      letter-spacing: 1.5px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      background: #63d9a0;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #63d9a077;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 42px;
+    }
+
+    .name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(54px, 15vw, 72px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: #f5f6fc;
+      text-shadow: 0 0 40px #668cff16;
+    }
+
+    .subtitle {
+      margin-top: 13px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: 1.2px;
+      color: #a0a8bc;
+    }
+
+    .subtitle .red {
+      color: var(--red);
+    }
+
+    .clock {
+      margin-top: 20px;
+      color: #77819a;
+      font-size: 12px;
+      letter-spacing: 2px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .section-label {
+      color: #737e98;
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      margin-bottom: 14px;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 17px;
+      border: 1px solid var(--border);
+      background: linear-gradient(135deg, #121827, #0d111c);
+      border-radius: 16px;
+      transition: transform .2s, border-color .2s, background .2s;
+    }
+
+    .link-card:hover {
+      transform: translateY(-3px);
+      border-color: #668cff66;
+      background: linear-gradient(135deg, #182139, #101522);
+    }
+
+    .link-icon {
+      width: 45px;
+      height: 45px;
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: #668cff14;
+      color: var(--blue);
+    }
+
+    .link-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .link-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .link-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+
+    .link-description {
+      color: var(--muted);
+      font-size: 11px;
+      overflow-wrap: anywhere;
+    }
+
+    .arrow {
+      color: #6d7892;
+      font-size: 20px;
+    }
+
+    /* Animated coding terminal */
+    .life-terminal {
+      margin-top: 30px;
+      overflow: hidden;
+      border: 1px solid rgba(102,140,255,.22);
+      border-radius: 14px;
+      background: rgba(5,8,16,.92);
+      box-shadow: 0 0 35px rgba(40,70,150,.08);
+      text-align: left;
+    }
+
+    .terminal-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 15px;
+      background: rgba(255,255,255,.025);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 5px;
+    }
+
+    .terminal-dots span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ff4057;
+    }
+
+    .terminal-dots span:nth-child(2) {
+      background: #ffc857;
+    }
+
+    .terminal-dots span:nth-child(3) {
+      background: #54d69a;
+    }
+
+    .terminal-title {
+      color: #8b94ab;
+      font-family: monospace;
+      font-size: 10px;
+    }
+
+    .terminal-status {
+      margin-left: auto;
+      color: #54d69a;
+      font-family: monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+
+    .terminal-body {
+      padding: 20px 17px;
+      min-height: 210px;
+      font-family: monospace;
+      font-size: 12px;
+      line-height: 2.2;
+    }
+
+    .terminal-line {
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      min-height: 26px;
+    }
+
+    .prompt {
+      color: #54d69a;
+      margin-right: 8px;
+    }
+
+    .blue {
+      color: #7298ff;
+    }
+
+    .red {
+      color: #ff4057;
+    }
+
+    .green {
+      color: #54d69a;
+    }
+
+    .muted {
+      color: #65718a;
+    }
+
+    .indent {
+      padding-left: 27px;
+      color: #c6d0e6;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 7px;
+      height: 14px;
+      margin-left: 3px;
+      vertical-align: -2px;
+      background: #ff4057;
+      animation: blink .8s steps(2) infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 24px;
+      color: #555f76;
+      font-family: monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+    }
+
+    footer span {
+      color: var(--red);
+    }
+
+    @media (max-width: 360px) {
+      .topbar {
+        margin-bottom: 55px;
+      }
+
+      .name {
+        font-size: 52px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+      }
+
+      .terminal-body {
+        font-size: 11px;
+        padding: 16px 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cursor {
+        animation: none;
+      }
+
+      .link-card {
+        transition: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="container">
-<header>
-<a class="brand" href="#">MeHi<span>R</span></a>
-<div class="status"><i></i> PERSONAL SPACE</div>
-</header>
-<main>
-<section class="hero">
-<span class="kicker">WELCOME TO MY WORLD</span>
-<h1>MeHrAd</h1>
-<p class="subtitle">in GoD We Trust.</p>
-<div class="clock">LOCAL TIME <strong id="clock">00:00:00</strong></div>
-</section>
+  <main class="page">
 
-<div class="section-heading">
-<h2>راه‌های ارتباطی</h2>
-<span>FIND ME ELSEWHERE</span>
-</div>
+    <header class="topbar">
+      <a class="brand" href="#">Mehi<span>69</span></a>
 
-<section class="links">
-<a class="link" href="https://t.me/MeHi_R" target="_blank" rel="noopener noreferrer">
-<div class="icon-box">
-<svg viewBox="0 0 24 24"><path d="m21 3-7.2 18-4-8.1L2 9.5 21 3Z"/><path d="m9.8 12.9 5-5"/></svg>
-</div>
-<div class="link-copy"><b>تلگرام</b><small>. @MeHi_R ·</small></div>
-<span class="link-arrow">↗</span>
-</a>
+      <div class="status">
+        <span class="status-dot"></span>
+        PERSONAL SPACE
+      </div>
+    </header>
 
-<a class="link" href="https://instagram.com/YOUR_USERNAME" target="_blank" rel="noopener noreferrer">
-<div class="icon-box">
-<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
-</div>
-<div class="link-copy"><b>اینستاگرام</b><small>لحظه‌ها، استایل و دنیای من</small></div>
-<span class="link-arrow">↗</span>
-</a>
+    <section class="hero">
+      <h1 class="name">MeHrAd</h1>
 
-<a class="link" href="https://wa.me/YOUR_NUMBER" target="_blank" rel="noopener noreferrer">
-<div class="icon-box">
-<svg viewBox="0 0 24 24"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4A8 8 0 1 1 20 11.5Z"/><path d="M9 8.5c.6 2 2 3.4 4.5 4.5l1.5-1.3 2 1c-.1 1.5-1.2 2.5-2.8 2.5-3.8-.5-6.8-3.5-7.2-7.2 0-1.3.8-2.3 2-2.5L10 7Z"/></svg>
-</div>
-<div class="link-copy"><b>ارتباط مستقیم</b><small>راه ارتباطی با من</small></div>
-<span class="link-arrow">↗</span>
-</a>
-</section>
+      <div class="subtitle">
+        In <span class="red">God</span> We <span class="red">Trust</span>
+      </div>
 
-<section class="quote">
-<div class="quote-mark">“</div>
-<p>روی خودت سرمایه‌گذاری کن؛ بقیه‌چیزها ساخته می‌شن.</p>
-</section>
-</main>
-<footer>BUILT DIFFERENT · <span>MeHrAd</span> © <span id="year"></span></footer>
-</div>
-<script>
-const clock=document.getElementById("clock");
-function updateClock(){
-clock.textContent=new Intl.DateTimeFormat("en-GB",{hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false}).format(new Date());
-}
-updateClock();
-setInterval(updateClock,1000);
-document.getElementById("year").textContent=new Date().getFullYear();
-</script>
+      <div class="clock" id="clock">00:00:00</div>
+    </section>
+
+    <section>
+      <div class="section-label">CONNECT WITH ME</div>
+
+      <div class="links">
+
+        <a class="link-card"
+           href="https://t.me/MeHi_R"
+           target="_blank"
+           rel="noopener noreferrer">
+
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M21.7 4.4 18.5 20c-.2 1.1-.8 1.4-1.7.9l-4.7-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.4-4.8 8.7-7.9c.4-.4-.1-.6-.6-.2L6.6 14.1 2 12.7c-1-.3-1-1 .2-1.5L20 4.3c.8-.3 1.9.2 1.7.1Z"/>
+            </svg>
+          </div>
+
+          <div class="link-info">
+            <div class="link-title">Telegram</div>
+            <div class="link-description">@MeHi_R</div>
+          </div>
+
+          <span class="arrow">↗</span>
+        </a>
+
+        <a class="link-card"
+           href="https://instagram.com/YOUR_USERNAME"
+           target="_blank"
+           rel="noopener noreferrer">
+
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.8" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+
+          <div class="link-info">
+            <div class="link-title">Instagram</div>
+            <div class="link-description">Follow my profile</div>
+          </div>
+
+          <span class="arrow">↗</span>
+        </a>
+
+        <a class="link-card"
+           href="https://wa.me/YOUR_NUMBER"
+           target="_blank"
+           rel="noopener noreferrer">
+
+          <div class="link-icon">
+            <svg viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+              <path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.4L3 20l1-4.7a8.5 8.5 0 1 1 16.5-3.6Z"/>
+              <path d="M8.5 8.2c.4-.8.7-.8 1.1-.8.2 0 .4 0 .6.5l.8 1.8c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4 0 .7.7 1.1 1.5 1.9 2.7 2.5.3.2.5.1.7-.1l.8-1c.2-.2.4-.3.7-.2l1.8.9c.3.2.4.3.4.5 0 .3-.2 1.1-.7 1.5-.5.4-1.1.7-1.8.6-1.1-.1-2.4-.7-3.8-1.8-1.7-1.4-2.8-3.2-3.1-4.2-.3-1 .1-1.8.5-2.3Z"/>
+            </svg>
+          </div>
+
+          <div class="link-info">
+            <div class="link-title">WhatsApp</div>
+            <div class="link-description">Message me directly</div>
+          </div>
+
+          <span class="arrow">↗</span>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="life-terminal">
+      <div class="terminal-header">
+        <div class="terminal-dots">
+          <span></span><span></span><span></span>
+        </div>
+        <span class="terminal-title">building_my_life.py</span>
+        <span class="terminal-status">● RUNNING</span>
+      </div>
+
+      <div class="terminal-body">
+        <div class="terminal-line">
+          <span class="prompt">➜</span><span class="blue">class</span> <span class="red">MyLife</span>:
+        </div>
+
+        <div class="terminal-line indent">
+          <span class="blue">def</span> <span class="green">__init__</span>(self):
+        </div>
+
+        <div class="terminal-line indent" style="padding-left:54px">
+          self.dreams = <span class="red">"unlimited"</span>
+        </div>
+
+        <div class="terminal-line indent" style="padding-left:54px">
+          self.mind = <span class="blue">"focused"</span>
+        </div>
+
+        <div class="terminal-line">
+          <span class="prompt">➜</span><span class="blue">while</span> <span class="red">alive</span>:
+        </div>
+
+        <div class="terminal-line indent">
+          <span class="green">learn</span>()
+        </div>
+
+        <div class="terminal-line indent">
+          <span class="green">build</span>()
+        </div>
+
+        <div class="terminal-line indent">
+          <span class="green">evolve</span>()
+        </div>
+
+        <div class="terminal-line">
+          <span class="prompt">➜</span><span class="muted"># creating my own destiny...</span>
+        </div>
+
+        <div class="terminal-line">
+          <span class="prompt">➜</span><span id="typing-text"></span><span class="cursor"></span>
+        </div>
+      </div>
+    </section>
+
+    <footer>ONE LINE AT A TIME<span> _</span></footer>
+
+  </main>
+
+  <script>
+    // Live clock
+    function updateClock() {
+      const now = new Date();
+
+      document.getElementById('clock').textContent =
+        now.toLocaleTimeString('en-GB', {
+          hour12: false,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        });
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+
+    // Animated typing effect
+    (() => {
+      const output = document.getElementById('typing-text');
+
+      if (!output) return;
+
+      const messages = [
+        'one_line_at_a_time()',
+        'dreams.into_reality()',
+        'life = self.create()',
+        'future = build_today()',
+        'success = keep_going()'
+      ];
+
+      let messageIndex = 0;
+      let charIndex = 0;
+      let deleting = false;
+
+      function type() {
+        const current = messages[messageIndex];
+
+        if (!deleting) {
+          charIndex++;
+          output.textContent = current.slice(0, charIndex);
+
+          if (charIndex >= current.length) {
+            deleting = true;
+            setTimeout(type, 1500);
+            return;
+          }
+
+          setTimeout(type, 65);
+        } else {
+          charIndex--;
+          output.textContent = current.slice(0, charIndex);
+
+          if (charIndex <= 0) {
+            deleting = false;
+            messageIndex = (messageIndex + 1) % messages.length;
+            setTimeout(type, 400);
+            return;
+          }
+
+          setTimeout(type, 30);
+        }
+      }
+
+      type();
+    })();
+  </script>
 </body>
 </html>
 
